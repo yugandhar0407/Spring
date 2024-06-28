@@ -1,0 +1,18 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" />
+                "http://www.springframework.org/dtd/spring-beans"
+
+ <beans>
+
+		<bean id = "b" class = "business.Bank"/>
+		<bean id = "lb" class = "services.LogBeforeService"/>
+		<bean id = "proxy" class = "org.springframework.aop.framework.ProxyFactoryBean">
+		
+		<property name = "target" ref = "b"/>
+		<property name = "interceptorNames">
+					<list>
+					<value>lb</value>
+					</list>
+		</property>
+	</bean>
+
+</beans>
